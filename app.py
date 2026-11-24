@@ -140,6 +140,7 @@ HTML_TEMPLATE = """
 <html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="y5q2Zik_cDs3lX0-ACviLK6HZm5O2qmxbMMDu0TTcaU" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ t.title }}</title>
     <style>
