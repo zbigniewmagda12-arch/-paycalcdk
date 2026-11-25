@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, request
+from flask import Flask, Response, render_template_string, request
 
 app = Flask(__name__)
 
@@ -66,6 +66,14 @@ TRANSLATIONS = {
         "aff_desc": "Duńskie banki pobierają nawet 3–4% ukrytej marży za przewalutowanie. Sprawdź przelew po kursie międzybankowym.",
         "aff_btn": "Sprawdź darmowy przelew DKK → PLN",
         "aff_alert": "Tutaj wstawisz swój link polecający do Wise lub Revolut!",
+        "info_heading": "Jak działa kalkulator wypłaty i podatku w Danii 2026?",
+        "info_p1": "Darmowy kalkulator wynagrodzeń dla osób pracujących w Danii pozwala szybko oszacować kwotę netto „na rękę” (DKK oraz PLN) na podstawie danych z paska wypłaty (lønseddel) lub stawki godzinowej.",
+        "info_h3": "Co uwzględnia wyliczenie?",
+        "info_li1": "AM-bidrag (8%) – obowiązkowa składka na rynek pracy pobierana od wynagrodzenia brutto.",
+        "info_li2": "Fradrag – kwota wolna / ulga z karty podatkowej obniżająca podstawę opodatkowania.",
+        "info_li3": "A-skat (Trækprocent) – zaliczka na podatek dochodowy pobierana przy wypłacie.",
+        "info_li4": "ATP, składka emerytalna, Feriepenge (12,5%) oraz Fritvalgskonto – zgodnie z ustawieniami formularza.",
+        "info_p2": "Ostateczne rozliczenie roczne (årsopgørelse) oraz zaliczki (forskudsopgørelse) zawsze weryfikuje duński urząd skarbowy SKAT (TastSelv).",
         "footer": "Kalkulator ma charakter poglądowy. Wyniki mogą się nieznacznie różnić w zależności od indywidualnych zapisów na pasku (Lønseddel)."
     },
     "en": {
@@ -131,6 +139,14 @@ TRANSLATIONS = {
         "aff_desc": "Danish banks charge up to 3–4% in hidden exchange markups. Check real mid-market transfers.",
         "aff_btn": "Check Low-Cost International Transfer",
         "aff_alert": "Insert your Wise or Revolut affiliate link here!",
+        "info_heading": "How Does the Denmark 2026 Salary & Tax Calculator Work?",
+        "info_p1": "This free Danish salary calculator helps estimate net take-home pay in DKK and PLN based on your payslip (lønseddel) or hourly rate.",
+        "info_h3": "What is included in the calculation?",
+        "info_li1": "AM-bidrag (8%) – mandatory labour market contribution deducted from gross pay.",
+        "info_li2": "Fradrag – tax deduction allowance from your tax card lowering taxable income.",
+        "info_li3": "A-skat (Trækprocent) – income tax withholding applied to payroll.",
+        "info_li4": "ATP, employee pension, Feriepenge (12.5%), and Fritvalgskonto – according to your form inputs.",
+        "info_p2": "Final annual tax assessments (årsopgørelse) and preliminary assessments (forskudsopgørelse) are always handled by SKAT (TastSelv).",
         "footer": "This calculator provides an estimate. Actual payout may vary slightly depending on specific payslip agreements."
     }
 }
@@ -157,7 +173,7 @@ HTML_TEMPLATE = """
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
         body { background: var(--bg); color: var(--text); line-height: 1.5; padding: 15px; }
         .container { max-width: 700px; margin: 0 auto; }
-        
+
         /* Pasek języka */
         .top-bar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; }
         .lang-btn {
@@ -178,7 +194,7 @@ HTML_TEMPLATE = """
         header { text-align: center; margin-bottom: 18px; padding: 8px 10px; }
         header h1 { font-size: 1.65rem; color: var(--primary); margin-bottom: 5px; }
         header p { color: var(--muted); font-size: 0.95rem; }
-        
+
         .ad-slot {
             background: #e9ecef;
             border: 1px dashed #adb5bd;
@@ -231,7 +247,7 @@ HTML_TEMPLATE = """
         }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         @media (max-width: 540px) { .grid { grid-template-columns: 1fr; } }
-        
+
         .form-group { margin-bottom: 12px; }
         label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 4px; color: #374151; }
         .hint { font-size: 0.77rem; color: var(--muted); font-weight: 400; display: block; }
@@ -314,6 +330,11 @@ HTML_TEMPLATE = """
             border-radius: 6px;
             font-size: 0.9rem;
         }
+        .info-box h2 { font-size: 1.15rem; color: #111827; margin-bottom: 8px; }
+        .info-box h3 { font-size: 1rem; color: #111827; margin: 12px 0 6px; }
+        .info-box p { font-size: 0.9rem; color: #374151; margin-bottom: 8px; }
+        .info-box ul { padding-left: 20px; font-size: 0.9rem; color: #374151; margin-bottom: 8px; }
+        .info-box li { margin-bottom: 5px; }
         footer { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 25px; padding-bottom: 20px; }
     </style>
 </head>
@@ -542,6 +563,19 @@ HTML_TEMPLATE = """
 
     <div class="ad-slot">{{ t.ad_bottom }}</div>
 
+    <div class="card info-box">
+        <h2>{{ t.info_heading }}</h2>
+        <p>{{ t.info_p1 }}</p>
+        <h3>{{ t.info_h3 }}</h3>
+        <ul>
+            <li>{{ t.info_li1 }}</li>
+            <li>{{ t.info_li2 }}</li>
+            <li>{{ t.info_li3 }}</li>
+            <li>{{ t.info_li4 }}</li>
+        </ul>
+        <p>{{ t.info_p2 }}</p>
+    </div>
+
     <footer>{{ t.footer }}</footer>
 </div>
 
@@ -555,6 +589,31 @@ function setPreset(hours, atp, fradrag) {
 </body>
 </html>
 """
+
+
+@app.route("/sitemap.xml")
+def sitemap():
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://paycalcdk.onrender.com/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>"""
+    return Response(xml, mimetype="application/xml")
+
+
+@app.route("/robots.txt")
+def robots():
+    txt = """User-agent: *
+Allow: /
+
+Sitemap: https://paycalcdk.onrender.com/sitemap.xml
+"""
+    return Response(txt, mimetype="text/plain")
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -671,6 +730,7 @@ def index():
         }
 
     return render_template_string(HTML_TEMPLATE, lang=lang, t=t, form=form_data, result=result)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5050, debug=True)
