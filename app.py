@@ -14,7 +14,7 @@ TRANSLATIONS = {
         "btn_month": "Miesiąc (160.33h + ATP 99.00)",
         "btn_ot50": "Nadgodziny 50% (przelicznik)",
         "btn_sick_example": "Chorobowe 148h @ 137.43",
-        "btn_clear_saved": "Wyczyść zapisane w przeglądarce",
+        "btn_clear_saved": "Wyzeruj wszystkie pola i pamięć",
         "saved_notice": "Przeglądarka automatycznie zapamiętuje Twoje ostatnie ustawienia na tym urządzeniu.",
         "sec_1": "1. Godziny i stawka podstawowa",
         "hours": "Liczba godzin zwykłych",
@@ -100,7 +100,7 @@ TRANSLATIONS = {
         "btn_month": "Monthly (160.33h + ATP 99.00)",
         "btn_ot50": "Overtime 50% (rate %)",
         "btn_sick_example": "Sick pay 148h @ 137.43",
-        "btn_clear_saved": "Clear saved browser values",
+        "btn_clear_saved": "Zero out all fields & memory",
         "saved_notice": "Your browser automatically saves your last entered values on this device.",
         "sec_1": "1. Regular Hours & Base Rate",
         "hours": "Regular working hours",
@@ -541,7 +541,7 @@ HTML_TEMPLATE = """
     </div>
 
     {% if result %}
-    <div class="card result-box">
+    <div id="result-card" class="card result-box">
         <div class="netto-highlight">
             <span>{{ t.res_netto_label }}</span>
             <strong>{{ "%.2f"|format(result.netto) }} DKK</strong>
@@ -676,7 +676,7 @@ HTML_TEMPLATE = """
 </div>
 
 <script>
-const STORAGE_KEY = "paycalcdk_form_v2";
+const STORAGE_KEY = "paycalcdk_form_v3";
 const FIELD_IDS = [
     "hours", "rate", "ot_hours", "ot_pct", "ot_rate",
     "sick_hours", "sick_rate", "hourly_bonus", "bonus",
@@ -716,8 +716,24 @@ function loadFormState() {
 }
 
 function clearSaved() {
-    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
-    window.location.href = "/?lang={{ lang }}";
+    try {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem("paycalcdk_form_v2");
+    } catch (e) {}
+
+    FIELD_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = "0";
+    });
+    CHECKBOX_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.checked = false;
+    });
+
+    const resCard = document.getElementById("result-card");
+    if (resCard) resCard.remove();
+
+    saveFormState();
 }
 
 function resetExtraFields() {
@@ -824,7 +840,7 @@ def index():
         hours = float(request.form.get("hours") or 0)
         rate = float(request.form.get("rate") or 0)
         ot_hours = float(request.form.get("ot_hours") or 0)
-        ot_pct = float(request.form.get("ot_pct") or 150)
+        ot_pct = float(request.form.get("ot_pct") or 0)
         ot_rate_input = float(request.form.get("ot_rate") or 0)
         sick_hours = float(request.form.get("sick_hours") or 0)
         sick_rate = float(request.form.get("sick_rate") or 0)
@@ -841,7 +857,7 @@ def index():
         tax_pct = float(request.form.get("tax_pct") or 0)
         feriepenge = "feriepenge" in request.form
         round_taxes = "round_taxes" in request.form
-        pln_rate = float(request.form.get("pln_rate") or 0.58)
+        pln_rate = float(request.form.get("pln_rate") or 0)
 
         form_data = {
             "hours": hours,
