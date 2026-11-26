@@ -14,6 +14,8 @@ TRANSLATIONS = {
         "btn_month": "Miesiąc (160.33h + ATP 99.00)",
         "btn_ot50": "Nadgodziny 50% (przelicznik)",
         "btn_sick_example": "Chorobowe 148h @ 137.43",
+        "btn_clear_saved": "Wyczyść zapisane w przeglądarce",
+        "saved_notice": "Przeglądarka automatycznie zapamiętuje Twoje ostatnie ustawienia na tym urządzeniu.",
         "sec_1": "1. Godziny i stawka podstawowa",
         "hours": "Liczba godzin zwykłych",
         "hours_hint": "Np. 160.33 (miesiąc) lub 74 (2 tyg.)",
@@ -30,11 +32,13 @@ TRANSLATIONS = {
         "sick_hours_hint": "Godziny na chorobowym / L4",
         "sick_rate": "Stawka za chorobowe (DKK)",
         "sick_rate_hint": "Np. 137.43 DKK, ~131 DKK lub 100% stawki",
-        "bonus": "Inne dodatki brutto (DKK)",
-        "bonus_hint": "Nocki, chłodnia, dodatek zmianowy, premia",
+        "hourly_bonus": "Dodatek za każdą godzinę (DKK/h)",
+        "hourly_bonus_hint": "Np. dodatek zmianowy / chłodnia liczony × godziny",
+        "bonus": "Inne dodatki ryczałtowe brutto (DKK)",
+        "bonus_hint": "Nocki, regulacje, premie wpisane kwotowo",
         "fritvalg_pct": "Konto Fritvalgskonto (%)",
         "fritvalg_hint": "Dodatek odkładany przez firmę (zwykle 9% lub 0%)",
-        "sec_3": "3. Podatki SKAT, emerytura, Feriepenge i zwroty",
+        "sec_3": "3. Podatki SKAT, emerytura, Feriepenge i przelewy",
         "fradrag": "Kwota wolna – Fradrag (DKK)",
         "fradrag_hint": "Kwota z paska dla danego okresu",
         "tax_pct": "Procent podatku – Trækprocent (%)",
@@ -42,24 +46,28 @@ TRANSLATIONS = {
         "pension_pct": "Składka emerytalna – Pension (%)",
         "pension_pct_hint": "Twój wkład własny (zwykle 0%, 2% lub 4%)",
         "atp": "Składka emerytalna ATP (DKK)",
-        "atp_hint": "Stała kwota: 0, ~49.50 DKK/2 tyg. lub ~99 DKK/mies.",
+        "atp_hint": "Stała kwota: 0, ~49.50–52.20 DKK/2 tyg. lub ~99 DKK/mies.",
         "netto_feriepenge": "Wypłacone Nettoferiepenge z paska (DKK)",
         "netto_feriepenge_hint": "Kwota netto zasiłku urlopowego doliczana do wypłaty",
         "tax_free_refund": "Zwrot nieopodatkowany / koszty (DKK)",
         "tax_free_refund_hint": "Np. zwrot za zaświadczenie lekarskie (np. 950 DKK)",
         "other_ded": "Inne potrącenia po podatku (DKK)",
-        "other_ded_hint": "Np. mieszkanie firmowe, dojazdy, związki",
+        "other_ded_hint": "Np. związki, mieszkanie firmowe, inne potrącenia",
+        "second_account": "Przelew na drugie konto / subkonto (DKK)",
+        "second_account_hint": "Np. OVERFØRT TIL na DataLøn – odejmie od wypłaty na główne konto",
         "feriepenge": "Naliczaj <strong>Feriepenge (12,5%)</strong> od wynagrodzenia (standard dla pracowników godzinowych)",
-        "round_taxes": "Zaokrąglaj podatki AM-bidrag i A-skat do pełnych koron (jak na pasku Zenegy)",
+        "round_taxes": "Zaokrąglaj podatki AM-bidrag i A-skat do pełnych koron (jak na pasku Zenegy / DataLøn)",
         "pln_rate": "Kurs wymiany DKK → PLN (do podglądu w złotówkach)",
         "btn_calc": "Oblicz moją wypłatę netto",
-        "res_netto_label": "Szacowana wypłata na rękę (Udbetalt):",
+        "res_netto_label": "Szacowana wypłata netto łącznie:",
+        "res_main_label": "Na konto główne (po przelewie na drugie konto):",
         "res_pln_info": "przy kursie",
         "res_breakdown": "Szczegółowe rozliczenie (jak na Lønseddel):",
         "row_base": "Wynagrodzenie podstawowe",
         "row_ot": "Nadgodziny",
         "row_sick": "Wynagrodzenie chorobowe (Sygeløn)",
-        "row_bonus": "Dodatki (nocki / zmiany / premie)",
+        "row_hourly_bonus": "Dodatki godzinowe",
+        "row_bonus": "Dodatki ryczałtowe (nocki / regulacje / premie)",
         "row_gross": "Suma wynagrodzenia brutto (Bruttoløn)",
         "row_fp_gross": "+ Odłożono na Feriepenge (12,5% na konto urlopowe)",
         "row_fv_gross": "+ Odłożono na Fritvalgskonto",
@@ -71,13 +79,15 @@ TRANSLATIONS = {
         "row_fp_tax": "- Podatek potrącony z góry za Feriepenge",
         "row_net_fp": "+ Wypłacone Nettoferiepenge (z paska)",
         "row_refund": "+ Zwrot nieopodatkowany (np. za lekarza)",
-        "row_other_ded": "- Inne potrącenia po podatku (mieszkanie / inne)",
+        "row_other_ded": "- Inne potrącenia po podatku",
+        "row_second_acc": "- Przelew na drugie konto / subkonto",
+        "row_main_payout": "Przelew na konto główne",
         "unit_h": "godz.",
         "aff_title": "💸 Wysyłasz wypłatę do Polski? Nie trać na kursie banku!",
         "aff_desc": "Duńskie banki pobierają nawet 3–4% ukrytej marży za przewalutowanie. Sprawdź przelew po kursie międzybankowym.",
         "aff_btn": "Sprawdź darmowy przelew DKK → PLN",
         "aff_alert": "Tutaj wstawisz swój link polecający do Wise lub Revolut!",
-        "footer": "Kalkulator ma charakter poglądowy. Wyniki mogą się nieznacznie różnić w zależności od indywidualnych zapisów na pasku (Lønseddel)."
+        "footer": "Kalkulator ma charakter poglądowy. Wyniki mogą się nieznacznie różnić w zależności od systemu płacowego (Zenegy / DataLøn) i zapisów na pasku (Lønseddel)."
     },
     "en": {
         "title": "Denmark Salary Calculator 2026 – Net Pay (Lønseddel)",
@@ -90,6 +100,8 @@ TRANSLATIONS = {
         "btn_month": "Monthly (160.33h + ATP 99.00)",
         "btn_ot50": "Overtime 50% (rate %)",
         "btn_sick_example": "Sick pay 148h @ 137.43",
+        "btn_clear_saved": "Clear saved browser values",
+        "saved_notice": "Your browser automatically saves your last entered values on this device.",
         "sec_1": "1. Regular Hours & Base Rate",
         "hours": "Regular working hours",
         "hours_hint": "E.g. 160.33 (monthly) or 74 (bi-weekly)",
@@ -106,11 +118,13 @@ TRANSLATIONS = {
         "sick_hours_hint": "Sick hours",
         "sick_rate": "Sick pay hourly rate (DKK)",
         "sick_rate_hint": "E.g. 137.43 DKK, ~131 DKK or 100% rate",
-        "bonus": "Other gross allowances (DKK)",
-        "bonus_hint": "Night shifts, cold storage, shift bonus",
+        "hourly_bonus": "Per-hour allowance (DKK/h)",
+        "hourly_bonus_hint": "E.g. shift / cold storage allowance × hours",
+        "bonus": "Other fixed gross allowances (DKK)",
+        "bonus_hint": "Night shifts, adjustments, flat bonuses",
         "fritvalg_pct": "Fritvalgskonto savings (%)",
         "fritvalg_hint": "Employer-funded flexible account (usually 9% or 0%)",
-        "sec_3": "3. SKAT Taxes, Pension, Feriepenge & Refunds",
+        "sec_3": "3. SKAT Taxes, Pension, Feriepenge & Transfers",
         "fradrag": "Tax-free allowance – Fradrag (DKK)",
         "fradrag_hint": "Deduction amount shown on your payslip",
         "tax_pct": "Tax rate – Trækprocent (%)",
@@ -118,24 +132,28 @@ TRANSLATIONS = {
         "pension_pct": "Employee pension contribution (%)",
         "pension_pct_hint": "Your own share (usually 0%, 2% or 4%)",
         "atp": "ATP Pension contribution (DKK)",
-        "atp_hint": "Fixed fee: 0, ~49.50 DKK/2 weeks or ~99 DKK/month",
+        "atp_hint": "Fixed fee: 0, ~49.50–52.20 DKK/2 weeks or ~99 DKK/month",
         "netto_feriepenge": "Paid Nettoferiepenge from payslip (DKK)",
         "netto_feriepenge_hint": "Net holiday pay amount added directly to take-home pay",
         "tax_free_refund": "Tax-free refund / expenses (DKK)",
         "tax_free_refund_hint": "E.g. medical certificate reimbursement (e.g. 950 DKK)",
         "other_ded": "Other post-tax deductions (DKK)",
-        "other_ded_hint": "E.g. company housing, transport, union fees",
+        "other_ded_hint": "E.g. union fees, housing, other deductions",
+        "second_account": "Transfer to second account / sub-account (DKK)",
+        "second_account_hint": "E.g. OVERFØRT TIL on DataLøn – deducted from main account payout",
         "feriepenge": "Calculate <strong>Feriepenge (12.5%)</strong> holiday pay (standard for hourly workers)",
-        "round_taxes": "Round AM-bidrag and A-skat to whole DKK (like Zenegy payslip)",
+        "round_taxes": "Round AM-bidrag and A-skat to whole DKK (like Zenegy / DataLøn payslip)",
         "pln_rate": "Exchange rate DKK → EUR / PLN (optional preview)",
         "btn_calc": "Calculate My Net Salary",
-        "res_netto_label": "Estimated Net Payout (Udbetalt):",
+        "res_netto_label": "Estimated Total Net Pay:",
+        "res_main_label": "To main bank account (after second account transfer):",
         "res_pln_info": "at rate",
         "res_breakdown": "Detailed Payslip Breakdown (Lønseddel):",
         "row_base": "Base salary",
         "row_ot": "Overtime pay",
         "row_sick": "Sick pay (Sygeløn)",
-        "row_bonus": "Allowances (night / shift / bonuses)",
+        "row_hourly_bonus": "Per-hour allowances",
+        "row_bonus": "Fixed allowances (night / adjustments / bonuses)",
         "row_gross": "Total Gross Salary (Bruttoløn)",
         "row_fp_gross": "+ Accrued Feriepenge (12.5% holiday account)",
         "row_fv_gross": "+ Accrued Fritvalgskonto",
@@ -147,13 +165,15 @@ TRANSLATIONS = {
         "row_fp_tax": "- Pre-deducted tax on Feriepenge",
         "row_net_fp": "+ Paid Nettoferiepenge (from payslip)",
         "row_refund": "+ Tax-free refund (e.g. doctor fee)",
-        "row_other_ded": "- Other post-tax deductions (housing / other)",
+        "row_other_ded": "- Other post-tax deductions",
+        "row_second_acc": "- Transfer to second account / sub-account",
+        "row_main_payout": "Main bank account payout",
         "unit_h": "hrs",
         "aff_title": "💸 Sending money abroad from Denmark? Don't lose on bank fees!",
         "aff_desc": "Danish banks charge up to 3–4% in hidden exchange markups. Check real mid-market transfers.",
         "aff_btn": "Check Low-Cost International Transfer",
         "aff_alert": "Insert your Wise or Revolut affiliate link here!",
-        "footer": "This calculator provides an estimate. Actual payout may vary slightly depending on specific payslip agreements."
+        "footer": "This calculator provides an estimate. Actual payout may vary slightly depending on payroll system (Zenegy / DataLøn) and payslip terms (Lønseddel)."
     }
 }
 
@@ -175,10 +195,11 @@ HTML_TEMPLATE = """
             --muted: #6b7280;
             --border: #e5e7eb;
             --green: #059669;
+            --blue: #1d4ed8;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
         body { background: var(--bg); color: var(--text); line-height: 1.5; padding: 15px; }
-        .container { max-width: 720px; margin: 0 auto; }
+        .container { max-width: 740px; margin: 0 auto; }
 
         .top-bar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px; }
         .lang-btn {
@@ -237,6 +258,14 @@ HTML_TEMPLATE = """
             cursor: pointer;
         }
         .btn-preset:hover { border-color: var(--primary); color: var(--primary); }
+        .btn-reset { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+
+        .saved-note {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-bottom: 14px;
+            text-align: right;
+        }
 
         .section-title {
             font-size: 1.05rem;
@@ -296,17 +325,29 @@ HTML_TEMPLATE = """
             padding: 16px;
             border-radius: 10px;
             text-align: center;
-            margin-bottom: 18px;
+            margin-bottom: 12px;
         }
         .netto-highlight span { display: block; font-size: 0.9rem; color: #065f46; font-weight: 600; }
         .netto-highlight strong { font-size: 2rem; color: var(--green); }
         .netto-pln { font-size: 0.95rem; color: #047857; margin-top: 4px; }
+
+        .main-account-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 12px 16px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 18px;
+        }
+        .main-account-box span { display: block; font-size: 0.85rem; color: #1e40af; font-weight: 600; }
+        .main-account-box strong { font-size: 1.35rem; color: var(--blue); }
 
         table { width: 100%; border-collapse: collapse; font-size: 0.91rem; }
         td { padding: 9px 4px; border-bottom: 1px solid var(--border); }
         td:last-child { text-align: right; font-weight: 600; }
         tr.deduction td:last-child { color: #dc2626; }
         tr.addition td:last-child { color: var(--green); }
+        tr.summary-row td { background: #f8fafc; font-weight: 700; }
 
         .affiliate-box {
             background: linear-gradient(135deg, #1e293b, #0f172a);
@@ -353,10 +394,13 @@ HTML_TEMPLATE = """
                 <button type="button" class="btn-preset" onclick="setPreset(160.33, 99.00, 4600)">{{ t.btn_month }}</button>
                 <button type="button" class="btn-preset" onclick="setOtPct(50)">{{ t.btn_ot50 }}</button>
                 <button type="button" class="btn-preset" onclick="setSickExample()">{{ t.btn_sick_example }}</button>
+                <button type="button" class="btn-preset btn-reset" onclick="clearSaved()">{{ t.btn_clear_saved }}</button>
             </div>
         </div>
 
-        <form method="POST" action="/?lang={{ lang }}">
+        <div class="saved-note">{{ t.saved_notice }}</div>
+
+        <form id="calc-form" method="POST" action="/?lang={{ lang }}">
             <div class="section-title">{{ t.sec_1 }}</div>
             <div class="grid">
                 <div class="form-group">
@@ -404,6 +448,12 @@ HTML_TEMPLATE = """
                         <span class="hint">{{ t.sick_rate_hint }}</span>
                     </label>
                     <input type="number" step="0.01" id="sick_rate" name="sick_rate" value="{{ form.sick_rate }}">
+                </div>
+                <div class="form-group">
+                    <label>{{ t.hourly_bonus }}
+                        <span class="hint">{{ t.hourly_bonus_hint }}</span>
+                    </label>
+                    <input type="number" step="0.01" id="hourly_bonus" name="hourly_bonus" value="{{ form.hourly_bonus }}">
                 </div>
                 <div class="form-group">
                     <label>{{ t.bonus }}
@@ -457,13 +507,18 @@ HTML_TEMPLATE = """
                     </label>
                     <input type="number" step="0.01" id="tax_free_refund" name="tax_free_refund" value="{{ form.tax_free_refund }}">
                 </div>
-            </div>
-
-            <div class="form-group">
-                <label>{{ t.other_ded }}
-                    <span class="hint">{{ t.other_ded_hint }}</span>
-                </label>
-                <input type="number" step="0.01" id="other_ded" name="other_ded" value="{{ form.other_ded }}">
+                <div class="form-group">
+                    <label>{{ t.other_ded }}
+                        <span class="hint">{{ t.other_ded_hint }}</span>
+                    </label>
+                    <input type="number" step="0.01" id="other_ded" name="other_ded" value="{{ form.other_ded }}">
+                </div>
+                <div class="form-group">
+                    <label>{{ t.second_account }}
+                        <span class="hint">{{ t.second_account_hint }}</span>
+                    </label>
+                    <input type="number" step="0.01" id="second_account" name="second_account" value="{{ form.second_account }}">
+                </div>
             </div>
 
             <div class="checkbox-group">
@@ -478,7 +533,7 @@ HTML_TEMPLATE = """
 
             <div class="form-group">
                 <label>{{ t.pln_rate }}</label>
-                <input type="number" step="0.01" name="pln_rate" value="{{ form.pln_rate }}">
+                <input type="number" step="0.01" id="pln_rate" name="pln_rate" value="{{ form.pln_rate }}">
             </div>
 
             <button type="submit" class="btn-calc">{{ t.btn_calc }}</button>
@@ -492,6 +547,14 @@ HTML_TEMPLATE = """
             <strong>{{ "%.2f"|format(result.netto) }} DKK</strong>
             <div class="netto-pln">≈ {{ "%.2f"|format(result.netto_pln) }} PLN ({{ t.res_pln_info }} {{ form.pln_rate }})</div>
         </div>
+
+        {% if result.second_account > 0 %}
+        <div class="main-account-box">
+            <span>{{ t.res_main_label }}</span>
+            <strong>{{ "%.2f"|format(result.main_payout) }} DKK</strong>
+            <div class="netto-pln" style="color: #1d4ed8;">≈ {{ "%.2f"|format(result.main_payout_pln) }} PLN</div>
+        </div>
+        {% endif %}
 
         <div class="section-title">{{ t.res_breakdown }}</div>
         <table>
@@ -509,6 +572,12 @@ HTML_TEMPLATE = """
             <tr>
                 <td>{{ t.row_sick }} ({{ form.sick_hours }} {{ t.unit_h }})</td>
                 <td>{{ "%.2f"|format(result.sick_gross) }} DKK</td>
+            </tr>
+            {% endif %}
+            {% if result.hourly_bonus_total > 0 %}
+            <tr>
+                <td>{{ t.row_hourly_bonus }} ({{ form.hourly_bonus }} DKK/h)</td>
+                <td>{{ "%.2f"|format(result.hourly_bonus_total) }} DKK</td>
             </tr>
             {% endif %}
             {% if result.bonus > 0 %}
@@ -581,6 +650,16 @@ HTML_TEMPLATE = """
                 <td>-{{ "%.2f"|format(result.other_ded) }} DKK</td>
             </tr>
             {% endif %}
+            {% if result.second_account > 0 %}
+            <tr class="deduction">
+                <td>{{ t.row_second_acc }}</td>
+                <td>-{{ "%.2f"|format(result.second_account) }} DKK</td>
+            </tr>
+            <tr class="summary-row">
+                <td>{{ t.row_main_payout }}</td>
+                <td>{{ "%.2f"|format(result.main_payout) }} DKK</td>
+            </tr>
+            {% endif %}
         </table>
 
         <div class="affiliate-box">
@@ -597,28 +676,111 @@ HTML_TEMPLATE = """
 </div>
 
 <script>
+const STORAGE_KEY = "paycalcdk_form_v2";
+const FIELD_IDS = [
+    "hours", "rate", "ot_hours", "ot_pct", "ot_rate",
+    "sick_hours", "sick_rate", "hourly_bonus", "bonus",
+    "fritvalg_pct", "fradrag", "tax_pct", "pension_pct",
+    "atp", "netto_feriepenge", "tax_free_refund",
+    "other_ded", "second_account", "pln_rate"
+];
+const CHECKBOX_IDS = ["feriepenge", "round_taxes"];
+
+function saveFormState() {
+    const data = {};
+    FIELD_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) data[id] = el.value;
+    });
+    CHECKBOX_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) data[id] = el.checked;
+    });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+}
+
+function loadFormState() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const data = JSON.parse(raw);
+        FIELD_IDS.forEach(id => {
+            const el = document.getElementById(id);
+            if (el && data[id] !== undefined) el.value = data[id];
+        });
+        CHECKBOX_IDS.forEach(id => {
+            const el = document.getElementById(id);
+            if (el && typeof data[id] === "boolean") el.checked = data[id];
+        });
+    } catch (e) {}
+}
+
+function clearSaved() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    window.location.href = "/?lang={{ lang }}";
+}
+
+function resetExtraFields() {
+    document.getElementById("ot_hours").value = "0";
+    document.getElementById("ot_rate").value = "0";
+    document.getElementById("sick_hours").value = "0";
+    document.getElementById("hourly_bonus").value = "0";
+    document.getElementById("bonus").value = "0";
+    document.getElementById("fritvalg_pct").value = "0";
+    document.getElementById("netto_feriepenge").value = "0";
+    document.getElementById("tax_free_refund").value = "0";
+    document.getElementById("other_ded").value = "0";
+    document.getElementById("second_account").value = "0";
+}
+
 function setPreset(hours, atp, fradrag) {
-    document.getElementById('hours').value = hours;
-    document.getElementById('atp').value = atp.toFixed(2);
-    document.getElementById('fradrag').value = fradrag;
+    resetExtraFields();
+    document.getElementById("hours").value = hours;
+    document.getElementById("atp").value = atp.toFixed(2);
+    document.getElementById("fradrag").value = fradrag;
+    document.getElementById("feriepenge").checked = true;
+    document.getElementById("round_taxes").checked = true;
+    saveFormState();
 }
+
 function setOtPct(pct) {
-    document.getElementById('ot_pct').value = pct;
-    document.getElementById('ot_rate').value = "0";
+    document.getElementById("ot_pct").value = pct;
+    document.getElementById("ot_rate").value = "0";
+    saveFormState();
 }
+
 function setSickExample() {
-    document.getElementById('hours').value = "0";
-    document.getElementById('rate').value = "0";
-    document.getElementById('sick_hours').value = "148";
-    document.getElementById('sick_rate').value = "137.43";
-    document.getElementById('pension_pct').value = "4";
-    document.getElementById('atp').value = "0";
-    document.getElementById('fradrag').value = "6302";
-    document.getElementById('tax_pct').value = "38";
-    document.getElementById('netto_feriepenge').value = "1450.46";
-    document.getElementById('feriepenge').checked = false;
-    document.getElementById('round_taxes').checked = true;
+    resetExtraFields();
+    document.getElementById("hours").value = "0";
+    document.getElementById("rate").value = "0";
+    document.getElementById("sick_hours").value = "148";
+    document.getElementById("sick_rate").value = "137.43";
+    document.getElementById("pension_pct").value = "4";
+    document.getElementById("atp").value = "0";
+    document.getElementById("fradrag").value = "6302";
+    document.getElementById("tax_pct").value = "38";
+    document.getElementById("netto_feriepenge").value = "1450.46";
+    document.getElementById("feriepenge").checked = false;
+    document.getElementById("round_taxes").checked = true;
+    saveFormState();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hasPostResult = {{ "true" if result else "false" }};
+    if (!hasPostResult) {
+        loadFormState();
+    } else {
+        saveFormState();
+    }
+    FIELD_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener("change", saveFormState);
+    });
+    CHECKBOX_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener("change", saveFormState);
+    });
+});
 </script>
 </body>
 </html>
@@ -641,13 +803,15 @@ def index():
         "ot_rate": "0",
         "sick_hours": "0",
         "sick_rate": "131.00",
+        "hourly_bonus": "0",
         "bonus": "0",
-        "fritvalg_pct": "9",
+        "fritvalg_pct": "0",
         "pension_pct": "2",
         "atp": "49.50",
         "netto_feriepenge": "0",
         "tax_free_refund": "0",
         "other_ded": "0",
+        "second_account": "0",
         "fradrag": "2200",
         "tax_pct": "38",
         "feriepenge": True,
@@ -664,6 +828,7 @@ def index():
         ot_rate_input = float(request.form.get("ot_rate") or 0)
         sick_hours = float(request.form.get("sick_hours") or 0)
         sick_rate = float(request.form.get("sick_rate") or 0)
+        hourly_bonus = float(request.form.get("hourly_bonus") or 0)
         bonus = float(request.form.get("bonus") or 0)
         fritvalg_pct = float(request.form.get("fritvalg_pct") or 0)
         pension_pct = float(request.form.get("pension_pct") or 0)
@@ -671,6 +836,7 @@ def index():
         netto_feriepenge = float(request.form.get("netto_feriepenge") or 0)
         tax_free_refund = float(request.form.get("tax_free_refund") or 0)
         other_ded = float(request.form.get("other_ded") or 0)
+        second_account = float(request.form.get("second_account") or 0)
         fradrag = float(request.form.get("fradrag") or 0)
         tax_pct = float(request.form.get("tax_pct") or 0)
         feriepenge = "feriepenge" in request.form
@@ -685,6 +851,7 @@ def index():
             "ot_rate": ot_rate_input,
             "sick_hours": sick_hours,
             "sick_rate": sick_rate,
+            "hourly_bonus": hourly_bonus,
             "bonus": bonus,
             "fritvalg_pct": fritvalg_pct,
             "pension_pct": pension_pct,
@@ -692,6 +859,7 @@ def index():
             "netto_feriepenge": netto_feriepenge,
             "tax_free_refund": tax_free_refund,
             "other_ded": other_ded,
+            "second_account": second_account,
             "fradrag": fradrag,
             "tax_pct": tax_pct,
             "feriepenge": feriepenge,
@@ -703,7 +871,9 @@ def index():
         base_gross = hours * rate
         ot_gross = ot_hours * effective_ot_rate
         sick_gross = sick_hours * sick_rate
-        total_gross = base_gross + ot_gross + sick_gross + bonus
+        active_hours = hours + ot_hours + sick_hours
+        hourly_bonus_total = round(active_hours * hourly_bonus, 2)
+        total_gross = base_gross + ot_gross + sick_gross + hourly_bonus_total + bonus
 
         pension = round(total_gross * (pension_pct / 100.0), 2)
         after_pension_and_atp = max(0.0, total_gross - pension - atp)
@@ -716,7 +886,7 @@ def index():
         raw_askat = taxable_income * (tax_pct / 100.0)
         a_skat = float(round(raw_askat)) if round_taxes else round(raw_askat, 2)
 
-        fp_eligible_gross = base_gross + ot_gross + bonus
+        fp_eligible_gross = base_gross + ot_gross + hourly_bonus_total + bonus
         feriepenge_gross = round(fp_eligible_gross * 0.125, 2) if feriepenge else 0.0
         feriepenge_tax = 0.0
         if feriepenge_gross > 0:
@@ -730,11 +900,15 @@ def index():
         netto = max(0.0, round(netto, 2))
         netto_pln = round(netto * pln_rate, 2)
 
+        main_payout = max(0.0, round(netto - second_account, 2))
+        main_payout_pln = round(main_payout * pln_rate, 2)
+
         result = {
             "base_gross": base_gross,
             "ot_gross": ot_gross,
             "effective_ot_rate": effective_ot_rate,
             "sick_gross": sick_gross,
+            "hourly_bonus_total": hourly_bonus_total,
             "bonus": bonus,
             "total_gross": total_gross,
             "pension": pension,
@@ -748,8 +922,11 @@ def index():
             "netto_feriepenge": netto_feriepenge,
             "tax_free_refund": tax_free_refund,
             "other_ded": other_ded,
+            "second_account": second_account,
             "netto": netto,
-            "netto_pln": netto_pln
+            "netto_pln": netto_pln,
+            "main_payout": main_payout,
+            "main_payout_pln": main_payout_pln
         }
 
     return render_template_string(HTML_TEMPLATE, lang=lang, t=t, form=form_data, result=result)
