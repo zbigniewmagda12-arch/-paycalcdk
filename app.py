@@ -802,6 +802,25 @@ document.addEventListener("DOMContentLoaded", () => {
 </html>
 """
 
+@app.route("/robots.txt")
+def robots_txt():
+    content = (
+        "User-agent: *\n"
+        "Allow: /\n\n"
+        "Sitemap: https://paycalcdk.onrender.com/sitemap.xml\n"
+    )
+    return content, 200, {"Content-Type": "text/plain; charset=utf-8"}
+
+@app.route("/sitemap.xml")
+def sitemap_xml():
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://paycalcdk.onrender.com/</loc>
+  </url>
+</urlset>"""
+    return xml, 200, {"Content-Type": "application/xml; charset=utf-8"}
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     lang = request.args.get("lang")
